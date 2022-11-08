@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>类的基本知识</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+  </head>
+  <body>
+    <script type="text/javascript">
+      class Person {
+        constructor(name, age) {
+          this.name = name;
+          this.age = age;
+        }
+        //一般方法
+        speak() {
+          // speak方法在类的原型对象prototype上, 供实例使用
+          // 通过Person实例调用speak时，speak中的this就是Person实例
+          console.log(this);
+          // console.log(`我叫${this.name}, 我的年龄是${this.age}`);
+        }
+      }
+
+      const p1 = new Person("tom", 18);
+      console.log(p1);
+      const x = p1.speak;
+      x();
+    </script>
+  </body>
+</html>

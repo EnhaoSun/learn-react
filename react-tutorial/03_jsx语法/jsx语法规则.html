@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title></title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <script type="text/javascript" src="../js/react.development.js"></script>
+        <script type="text/javascript" src="../js/react-dom.development.js"></script>
+        <script type="text/javascript" src="../js/babel.min.js"></script>
+        <style>
+            .title {
+                background-color: orange;
+                width: 200px;
+            }
+        </style>
+    </head>
+    <body>
+        <div id="test"></div>
+
+        <script type="text/babel">
+            const myId = "abc"
+            const myData = "Hello, abc"
+
+            const VDOM =
+            (
+                <div>
+                    <h2 className="title" id={myId}>
+                        <span>{myData}</span>
+                    </h2>
+                </div>
+            )
+            ReactDOM.render(VDOM, document.getElementById('test'))
+        </script>
+    </body>
+</html>

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title></title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <script type="text/javascript" src="../js/react.development.js"></script>
+    <script
+      type="text/javascript"
+      src="../js/react-dom.development.js"
+    ></script>
+    <script type="text/javascript" src="../js/babel.min.js"></script>
+  </head>
+  <body>
+    <div id="test"></div>
+    <script type="text/babel">
+      class Weather extends React.Component {
+        state = { isHot: false };
+
+        render() {
+          const { isHot } = this.state;
+          return (
+            <h1 onClick={this.changeWeather}>
+              今天天气很{isHot ? "炎热" : "凉爽"}
+            </h1>
+          );
+        }
+
+        // 用赋值语句+箭头函数
+        // () => 会往外层找this
+        changeWeather = () => {
+          const isHot = this.state.isHot;
+          this.setState({ isHot: !isHot });
+        };
+      }
+      ReactDOM.render(<Weather />, document.getElementById("test"));
+    </script>
+  </body>
+</html>
