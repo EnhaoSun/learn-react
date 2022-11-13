@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>4_createRef</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <script type="text/javascript" src="../js/react.development.js"></script>
+    <script
+      type="text/javascript"
+      src="../js/react-dom.development.js"
+    ></script>
+    <script type="text/javascript" src="../js/babel.min.js"></script>
+  </head>
+  <body>
+    <div id="test"></div>
+    <script type="text/babel">
+      class Demo extends React.Component {
+        // 存储被ref所标识的节点
+        myRef = React.createRef();
+
+        //展示左侧输入框的数据
+        showData = () => {
+          console.log(this.myRef.current);
+          // const { input1 } = this;
+          // alert(input1.value);
+        };
+
+        //展示右侧输入框的数据
+        showData2 = () => {
+          const { input2 } = this;
+          alert(input2.value);
+          console.log(this);
+        };
+
+        render() {
+          console.log(this);
+          return (
+            <div>
+              <input
+                ref={this.myRef}
+                type="text"
+                placeholder="点击按钮提示数据"
+              />
+              &nbsp;
+              <button onClick={this.showData}>点我提示左侧数据</button> &nbsp;
+            </div>
+          );
+        }
+      }
+
+      ReactDOM.render(<Demo />, document.getElementById("test"));
+    </script>
+  </body>
+</html>
