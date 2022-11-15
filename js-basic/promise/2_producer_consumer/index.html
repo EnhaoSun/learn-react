@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Promise loadScript</title>
+    <script type="text/javascript" src="./index.js"></script>
+  </head>
+  <body>
+    <script>
+      let promise = loadScript("./demo.js");
+      promise.then(
+        (script) => alert(`${script.src} is loaded`),
+        (error) => alert(`Error: ${error.message}`)
+      );
+
+
+      promise.then(
+        (script) => alert("Another handeler..."),
+        (error) => alert(`Error: ${error.message}`)
+      );
+
+      // promise.then((script) => alert("Another handler..."));
+    </script>
+  </body>
+</html>
