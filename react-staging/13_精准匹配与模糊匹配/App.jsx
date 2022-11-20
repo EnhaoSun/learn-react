@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Route, Switch, Redirect } from "react-router-dom";
+import { Route, Switch } from "react-router-dom";
 import Home from "./pages/Home";
 import About from "./pages/About";
 import Header from "./components/Header"
@@ -17,6 +17,7 @@ export default class App extends Component {
         <div className="row">
           <div className="col-xs-2 col-xs-offset-2">
             <div className="list-group">
+              {/* 模糊匹配 /home/a/b */}
               <MyNavLink to="/home">Home</MyNavLink>
               <MyNavLink to="/about">About</MyNavLink>
             </div>
@@ -25,9 +26,9 @@ export default class App extends Component {
             <div className="panel">
               <div className="panel-body">
                 <Switch>
-                  <Route path="/home" component={Home} />
-                  <Route path="/about" component={About} />
-                  <Redirect to="/about" />
+                  {/* 严格匹配 */}
+                  <Route exact path="/home" component={Home} />
+                  <Route exact path="/about" component={About} />
                 </Switch>
               </div>
             </div>
