@@ -28,14 +28,6 @@ export default class Message extends Component {
     this.props.history.replace(`/home/message/detail/${id}/${title}`);
   };
 
-  goForward = () => {
-    this.props.history.goForward();
-  };
-
-  goBack = () => {
-    this.props.history.goBack();
-  };
-
   render() {
     const { messages } = this.state;
     return (
@@ -63,7 +55,6 @@ export default class Message extends Component {
                 <button onClick={() => this.pushShow(m.id, m.title)}>
                   push查看
                 </button>
-                &nbsp;
                 <button onClick={() => this.replaceShow(m.id, m.title)}>
                   replace查看
                 </button>
@@ -71,9 +62,6 @@ export default class Message extends Component {
             );
           })}
         </ul>
-        <button onClick={() => this.goBack()}>后退</button>
-        &nbsp;
-        <button onClick={() => this.goForward()}>前进</button>
         <hr />
         {/* 声明接收params参数 */}
         <Route path="/home/message/detail/:id/:title" component={Detail} />
